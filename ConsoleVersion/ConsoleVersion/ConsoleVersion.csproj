@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HashingGenerator.cs" />
+    <Compile Include="HmacHashingSHA256.cs" />
+    <Compile Include="HmacHashingSHA512.cs" />
+    <Compile Include="HmacHashingMD5.cs" />
     <Compile Include="HashingSHA256.cs" />
     <Compile Include="HashingSHA512.cs" />
     <Compile Include="HashingMD5.cs" />

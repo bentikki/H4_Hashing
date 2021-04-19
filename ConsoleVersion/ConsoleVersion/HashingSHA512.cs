@@ -16,9 +16,9 @@ namespace ConsoleVersion
         {
             byte[] inputByteArray = this.StringToByteArray(inputString);
 
-            using (var hmac = new HMACSHA512(key))
+            using (var hashingService = SHA512.Create())
             {
-                return hmac.ComputeHash(inputByteArray);
+                return hashingService.ComputeHash(inputByteArray);
             }
         }
 

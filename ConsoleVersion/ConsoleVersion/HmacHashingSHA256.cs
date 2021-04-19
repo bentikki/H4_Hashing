@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleVersion
 {
-    class HashingSHA256 : HashingGenerator, IHashingGenerator
+    class HmacHashingSHA256 : HashingGenerator, IHashingGenerator
     {
         private string name = "SHA256";
         public string Name { get { return this.name; } }
@@ -16,9 +16,9 @@ namespace ConsoleVersion
         {
             byte[] inputByteArray = this.StringToByteArray(inputString);
 
-            using (var hashingService = SHA256.Create())
+            using (var hmac = new HMACSHA256(key))
             {
-                return hashingService.ComputeHash(inputByteArray);
+                return hmac.ComputeHash(inputByteArray);
             }
         }
 
