@@ -10,7 +10,7 @@ namespace ConsoleVersion
     {
         static void Main(string[] args)
         {
-            int keySize = 32;
+            int keySize = 32; 
             var generatedKey = KeyGenerator.GenerateKey(keySize);
             Console.WriteLine("Current key: " + Convert.ToBase64String(generatedKey));
 
@@ -19,7 +19,8 @@ namespace ConsoleVersion
 
             Console.WriteLine("Hashing menu:");
             Console.WriteLine("1. MD5");
-            Console.WriteLine("2. SHA512");
+            Console.WriteLine("2. SHA256");
+            Console.WriteLine("3. SHA512");
 
             IHashingGenerator hasher = null;
             byte[] encryptedValue = null;
@@ -31,6 +32,9 @@ namespace ConsoleVersion
                     hasher = new HashingMD5();
                     break;
                 case "2":
+                    hasher = new HashingSHA256();
+                    break;
+                case "3":
                     hasher = new HashingSHA512();
                     break;
                 default:
@@ -43,7 +47,9 @@ namespace ConsoleVersion
             Console.WriteLine();
 
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Press any key to compare:");
+            Console.ReadKey();
             Console.WriteLine("Original Value   : " + Convert.ToBase64String(encryptedValue));
             Console.WriteLine("Compare Value    : " + Convert.ToBase64String(hasher.HashInput(plaintTextInput, generatedKey)));
             Console.WriteLine("Compare correct  : " + hasher.CheckAuthenticity(plaintTextInput, encryptedValue, generatedKey).ToString()); 

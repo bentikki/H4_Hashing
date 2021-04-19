@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleVersion
 {
-    class HashingMD5 : HashingGenerator, IHashingGenerator
+    class HashingSHA256 : HashingGenerator, IHashingGenerator
     {
-        private string name = "MD5";
+        private string name = "SHA256";
         public string Name { get { return this.name; } }
 
         public override byte[] HashInput(string inputString, byte[] key)
         {
             byte[] inputByteArray = this.StringToByteArray(inputString);
 
-            using (var hmac = new HMACMD5(key))
+            using (var hmac = new HMACSHA256(key))
             {
                 return hmac.ComputeHash(inputByteArray);
             }
         }
+
+        
     }
 }

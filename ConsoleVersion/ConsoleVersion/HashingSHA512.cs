@@ -12,7 +12,7 @@ namespace ConsoleVersion
         private string name = "SHA512";
         public string Name { get { return this.name; } }
 
-        public byte[] HashInput(string inputString, byte[] key)
+        public override byte[] HashInput(string inputString, byte[] key)
         {
             byte[] inputByteArray = this.StringToByteArray(inputString);
 
@@ -22,9 +22,5 @@ namespace ConsoleVersion
             }
         }
 
-        public bool CheckAuthenticity(string inputString, byte[] hash, byte[] key)
-        {
-            return this.CompareByteArrays(this.HashInput(inputString, key), hash, hash.Length);
-        }
     }
 }

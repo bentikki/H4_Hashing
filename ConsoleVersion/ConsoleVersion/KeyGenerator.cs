@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleVersion
 {
+    /// <summary>
+    /// Key generator.
+    /// Can be used in order to get truly random values.
+    /// </summary>
     class KeyGenerator
     {
         static public byte[] GenerateKey(int keySize)
         {
+            // Uses RNGCryptoServiceProvider instead of fx. Random, to create more random and secure values.
             using (var randomNumberGenerator = new RNGCryptoServiceProvider())
             {
                 var randomNumber = new byte[keySize];

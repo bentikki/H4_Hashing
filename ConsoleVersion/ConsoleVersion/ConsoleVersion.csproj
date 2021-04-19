@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HashingGenerator.cs" />
+    <Compile Include="HashingSHA256.cs" />
     <Compile Include="HashingSHA512.cs" />
     <Compile Include="HashingMD5.cs" />
     <Compile Include="IHashingGenerator.cs" />
