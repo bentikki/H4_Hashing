@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BenchmarkService.cs" />
     <Compile Include="HashingGenerator.cs" />
     <Compile Include="HmacHashingSHA256.cs" />
     <Compile Include="HmacHashingSHA512.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="HashingSHA256.cs" />
     <Compile Include="HashingSHA512.cs" />
     <Compile Include="HashingMD5.cs" />
+    <Compile Include="IBenchmarkTimer.cs" />
     <Compile Include="IHashingGenerator.cs" />
     <Compile Include="KeyGenerator.cs" />
     <Compile Include="Program.cs" />

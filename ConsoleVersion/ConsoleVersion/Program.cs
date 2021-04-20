@@ -12,6 +12,7 @@ namespace ConsoleVersion
         {
             int keySize = 32; 
             var generatedKey = KeyGenerator.GenerateKey(keySize);
+            IBenchmarkTimer timer = new BenchmarkStopWatch();
             string menuSelection = string.Empty;
             Console.WriteLine("Current key: " + Convert.ToBase64String(generatedKey));
 
@@ -75,11 +76,13 @@ namespace ConsoleVersion
                 }
 
 
-
+                timer.Start();
                 encryptedValue = hasher.HashInput(plaintTextInput, generatedKey);
+                timer.Stop();
                 Console.Write($"{hasher.Name} MAC: ");
                 Console.Write(Convert.ToBase64String(encryptedValue));
                 Console.WriteLine();
+                Console.Write($"Benchmark: " + timer.TimingResult());
 
                 Console.WriteLine();
                 Console.WriteLine();
